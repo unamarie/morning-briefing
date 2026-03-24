@@ -358,7 +358,7 @@ def generate_html(summaries: list[dict], generated_at: str) -> str:
 <body>
   <div class="container">
     <header>
-      <h1>Morning Briefing</h1>
+      <h1>Morning briefing</h1>
       <p class="dateline">Generated {generated_at}</p>
     </header>
     {category_blocks}
