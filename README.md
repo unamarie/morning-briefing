@@ -1,57 +1,20 @@
-# ☀️ Morning Briefing
+# ☀️ Morning briefing
 
-A daily AI-powered news dashboard for data professionals. Fetches RSS feeds, summarizes them with Claude, and publishes a static HTML dashboard to GitHub Pages — automatically, every morning.
+A daily AI-powered news dashboard for data professionals. Fetches RSS feeds, summarizes them with Claude, and publishes a static HTML dashboard to GitHub Pages.
 
 ![Python](https://img.shields.io/badge/python-3.12-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-## What you get
+## What
 
-A clean, dark-themed dashboard at `https://<your-username>.github.io/morning-briefing/` that refreshes every day with:
+A clean, dark-themed dashboard at `https://unamariei.github.io/morning-briefing/` that refreshes every day with:
 
-- **Microsoft Fabric / Power BI** — official blog + devblog
-- **GitHub** — blog + changelog
-- **Data Engineering** — dbt, Snowflake, Databricks, BigQuery
-- **General Tech** — Ars Technica, The Verge, Hacker News top stories
+- **Microsoft Fabric/Power BI**: official blog + devblog
+- **GitHub**: blog + changelog
+- **Data Engineering**: dbt, Snowflake, Databricks, BigQuery
+- **General Tech**: Ars Technica, The Verge, Hacker News top stories
 
-Each article gets a 1-2 sentence summary and a relevance rating (high / medium / low) tailored for data engineers and analytics professionals.
-
----
-
-## Quick setup (10 minutes)
-
-### 1. Create the repo
-
-```bash
-# Clone or fork this repo
-git clone https://github.com/<you>/morning-briefing.git
-cd morning-briefing
-```
-
-### 2. Add your Anthropic API key
-
-Go to your repo on GitHub:
-
-**Settings → Secrets and variables → Actions → New repository secret**
-
-| Name | Value |
-|------|-------|
-| `ANTHROPIC_API_KEY` | `sk-ant-...` (your key from console.anthropic.com) |
-
-### 3. Enable GitHub Pages
-
-**Settings → Pages → Source → GitHub Actions**
-
-### 4. Test it
-
-Go to **Actions → Morning Briefing → Run workflow** and click the green button.
-
-After ~2 minutes your dashboard will be live at:
-```
-https://<your-username>.github.io/morning-briefing/
-```
-
-That's it. The workflow runs automatically every morning at 06:00 UTC (07:00 CET / 08:00 CEST).
+Each article gets a 1-2 sentence summary and a relevance rating (high/medium/low) tailored for data engineers and analytics professionals.
 
 ---
 
@@ -133,13 +96,3 @@ morning-briefing/
     ├── index.html               # The dashboard
     └── briefing.json            # Raw summary data
 ```
-
----
-
-## Tips
-
-- **Bookmark the dashboard URL** on your phone/tablet for a morning reading habit
-- **Add a .gitignore** with `public/` so generated files aren't committed
-- **Want email instead?** Add a step in the workflow that sends the HTML via a service like Resend or SendGrid
-- **Want Slack/Teams?** Add a step that posts the `briefing.json` summaries via webhook
-- **Multiple dashboards?** Run different configs on different schedules (e.g., weekly deep-dive on Fridays)
