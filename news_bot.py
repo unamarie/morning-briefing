@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Morning Briefing — RSS → Claude API → HTML Dashboard
+Morning briefing: RSS → Claude API → HTML Dashboard
 Fetches articles from configured RSS feeds, summarizes them with Claude,
-and generates a static HTML dashboard you can host anywhere.
+and generates a static HTML dashboard.
 """
 
 import os
@@ -16,9 +16,7 @@ from pathlib import Path
 import feedparser
 import anthropic
 
-# ──────────────────────────────────────────────
-# CONFIGURATION — Edit these to taste
-# ──────────────────────────────────────────────
+# CONFIGURATION
 
 FEEDS = {
     "Microsoft Fabric": [
@@ -58,9 +56,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s  %(message)s")
 log = logging.getLogger(__name__)
 
 
-# ──────────────────────────────────────────────
 # RSS FETCHING
-# ──────────────────────────────────────────────
 
 def fetch_articles(feeds: dict, lookback_hours: int) -> dict:
     """Fetch recent articles from all RSS feeds, grouped by category."""
@@ -116,9 +112,7 @@ def fetch_articles(feeds: dict, lookback_hours: int) -> dict:
     return results
 
 
-# ──────────────────────────────────────────────
 # CLAUDE SUMMARIZATION
-# ──────────────────────────────────────────────
 
 def summarize_category(client: anthropic.Anthropic, category: str, articles: list) -> dict:
     """Send a batch of articles to Claude and get back structured summaries."""
@@ -180,9 +174,7 @@ Articles:
         }
 
 
-# ──────────────────────────────────────────────
 # HTML DASHBOARD GENERATION
-# ──────────────────────────────────────────────
 
 def generate_html(summaries: list[dict], generated_at: str) -> str:
     """Produce a self-contained HTML dashboard."""
@@ -220,7 +212,7 @@ def generate_html(summaries: list[dict], generated_at: str) -> str:
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Morning Briefing — {generated_at}</title>
+<title>Morning briefing {generated_at}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 <style>
@@ -378,12 +370,10 @@ def generate_html(summaries: list[dict], generated_at: str) -> str:
 </html>"""
 
 
-# ──────────────────────────────────────────────
 # MAIN
-# ──────────────────────────────────────────────
 
 def main():
-    log.info("🌅 Morning Briefing — starting")
+    log.info("Morning briefing, starting")
 
     # 1. Fetch RSS
     log.info("Fetching RSS feeds...")
@@ -412,12 +402,12 @@ def main():
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     out_path = OUTPUT_DIR / "index.html"
     out_path.write_text(html, encoding="utf-8")
-    log.info(f"✅ Dashboard written to {out_path}")
+    log.info(f"Dashboard written to {out_path}")
 
     # Also save raw JSON for debugging / downstream use
     json_path = OUTPUT_DIR / "briefing.json"
     json_path.write_text(json.dumps(summaries, indent=2, ensure_ascii=False), encoding="utf-8")
-    log.info(f"📄 JSON written to {json_path}")
+    log.info(f"JSON written to {json_path}")
 
 
 if __name__ == "__main__":
