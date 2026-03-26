@@ -19,24 +19,90 @@ import anthropic
 # CONFIGURATION
 
 FEEDS = {
+    # Microsoft Fabric and Power Platform
     "Microsoft Fabric": [
         "https://blog.fabric.microsoft.com/en-us/blog/feed",
         "https://devblogs.microsoft.com/powerbi/feed/",
+        "https://rss.app/feeds/cF6hSzjKQvaJcQVf.xml",
     ],
-    "GitHub": [
-        "https://github.blog/feed/",
-        "https://github.blog/changelog/feed/",
-    ],
+
+    # Data Engineering
     "Data Engineering": [
         "https://www.getdbt.com/blog/rss.xml",
         "https://medium.com/feed/snowflake",
         "https://www.databricks.com/feed",
         "https://cloud.google.com/feeds/bigquery-release-notes.xml",
+        "https://www.apacheairflow.com/blog/rss.xml",  # Airflow / orchestration
+        "https://dagster.io/blog/rss.xml",
+        "https://delta.io/feed.xml",                    # Delta Lake
     ],
+
+    # AI, LLMs and Agents
+    "AI and Agents": [
+        "https://openai.com/blog/rss.xml",
+        "https://www.anthropic.com/rss.xml",
+        "https://blog.google/technology/ai/rss/",
+        "https://huggingface.co/blog/feed.xml",
+        "https://www.langchain.com/blog/rss.xml",
+        "https://lilianweng.github.io/index.xml",       # Lilian Weng (OpenAI)
+        "https://simonwillison.net/atom/everything/",    # Simon Willison — LLM tooling
+        "https://buttondown.com/ainews/rss",             # AI News newsletter
+    ],
+
+    # Automation and Orchestration
+    "Automation and Orchestration": [
+        "https://blog.n8n.io/rss/",
+        "https://zapier.com/blog/feeds/latest/",
+        "https://www.make.com/en/blog/feed",
+        "https://temporal.io/blog/feed",                 # Workflow orchestration
+        "https://prefect.io/blog/rss.xml",
+    ],
+
+    # Cloud and Infrastructure
+    "Cloud and Infrastructure": [
+        "https://aws.amazon.com/blogs/aws/feed/",
+        "https://azure.microsoft.com/en-us/blog/feed/",
+        "https://cloud.google.com/blog/feeds/all.xml",
+        "https://www.hashicorp.com/blog/feed.xml",       # Terraform, Vault, etc.
+        "https://www.pulumi.com/blog/rss.xml",
+    ],
+
+    # System Architecture and DevOps
+    "Architecture and DevOps": [
+        "https://www.infoq.com/feed/",                   # Deep architecture content
+        "https://thenewstack.io/feed/",
+        "https://martinfowler.com/feed.atom",
+        "https://newsletter.pragmaticengineer.com/feed",
+        "https://blog.bytebytego.com/feed",              # System design
+    ],
+
+    # General Tech News
     "General Tech News": [
         "https://feeds.arstechnica.com/arstechnica/technology-lab",
         "https://www.theverge.com/rss/index.xml",
-        "https://hnrss.org/best?count=15",  # Hacker News top stories
+        "https://hnrss.org/best?count=15",
+        "https://tldr.tech/api/rss/tech",                # TLDR newsletter
+    ],
+
+    # GitHub
+    "GitHub": [
+        "https://github.blog/feed/",
+        "https://github.blog/changelog/feed/",
+    ],
+
+    # Reddit Communities
+    "Reddit": [
+        "https://www.reddit.com/r/llmdevs/top/.rss?t=week",
+        "https://www.reddit.com/r/AI_Agents/top/.rss?t=week",
+        "https://www.reddit.com/r/MicrosoftFabric/top/.rss?t=week",
+        "https://www.reddit.com/r/dataengineering/top/.rss?t=week",
+        "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=week",
+        "https://www.reddit.com/r/selfhosted/top/.rss?t=week",
+    ],
+
+    # World News
+    "World": [
+        "https://theconversation.com/global/feeds",
     ],
 }
 
